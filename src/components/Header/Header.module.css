@@ -1,0 +1,9 @@
+.header
+{   background-color: green;
+    grid-area: h;} /*присвоили псевдоним грид ереа компоненту */
+
+.header img {
+    width:  200px;
+    height: 100px;
+    background-color: greenyellow;
+}

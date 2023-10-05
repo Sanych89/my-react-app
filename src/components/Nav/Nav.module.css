@@ -1,0 +1,16 @@
+.nav
+{ background-color: navy;
+    padding: 20px;
+    grid-area: n; /*присвоили псевдоним грид ереа компоненту */
+} 
+
+.item {
+color: red;
+text-decoration: none;
+}
+
+.active
+{
+ color: gold; 
+}
+

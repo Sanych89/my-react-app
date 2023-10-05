@@ -1,0 +1,28 @@
+.TrainingMainScreen
+{ height: 500px;
+  background-color: cornflowerblue;
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+    } 
+
+
+.training_items
+{
+    padding: 10px;
+    text-decoration: none
+}
+
+.training_items.a {
+  text-decoration: none;
+}
+
+.trainer a {
+text-decoration: none;
+color: silver;
+}
+
+
+.trainermessages
+{padding: 10px;}
+.trainermessage
+{color: brown;}

@@ -1,0 +1,20 @@
+.app-wrapper
+{
+    margin: 0 auto;    
+    display: grid;
+    width: 1200px;
+
+    grid-template-areas: 
+    'h h'
+    'n c';
+    grid-template-rows: 60px 1fr; /*создали две строки */
+    grid-template-columns: 2fr 10fr; /*создали две колонки . ФР єто фракция. В данном примере колонки делятся по принципу 2 к 10. Две части єлемента отведено одной колонке и 10 другой*/
+    
+  
+
+}
+
+.mainScreenDisplay
+{
+grid-area: c;} /*присвоили псевдоним грид ереа компоненту */
+
