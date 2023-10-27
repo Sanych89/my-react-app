@@ -13,20 +13,6 @@ function MyCabStat(props) {
         />
         { props.avname } { props.clubAge } 
       </div>
-      {/*<div className={classes.item}>
-        <img
-          src="https://cdn.pixabay.com/photo/2016/08/18/11/00/man-1602633_640.png"
-          alt=""
-        />
-        {props.name}
-      </div>
-      <div className={classes.item}>
-        <img
-          src="https://cdn.pixabay.com/photo/2013/10/22/07/56/android-199225_640.jpg"
-          alt=""
-        />
-        Content3
-  </div> */}
     </>
   );
 }

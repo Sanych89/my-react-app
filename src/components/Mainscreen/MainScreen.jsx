@@ -33,8 +33,9 @@ function MainScreen(props) {
         <div> 
         < MainScreenImage />
         < SubScreenImage />
+       
 
-        <MyCab/>
+        
        
       </div>
       

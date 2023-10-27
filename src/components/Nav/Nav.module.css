@@ -2,7 +2,11 @@
 { background-color: navy;
     padding: 20px;
     grid-area: n; /*присвоили псевдоним грид ереа компоненту */
-} 
+    display: flex;
+    flex-direction: column;
+    
+
+}
 
 .item {
 color: red;
@@ -14,3 +18,26 @@ text-decoration: none;
  color: gold; 
 }
 
+.NavFooter {
+
+    margin-top: auto;
+    
+
+
+    
+}
+
+.itemNavFooter {
+    color: blueviolet;
+    display: flex;
+    flex-direction: row;
+    background-color: bisque;
+    justify-content: space-between;
+
+}
+
+.itemNavFooter img {
+    width:  50px;
+    height: 70px;
+    border-radius: 20px;
+}
