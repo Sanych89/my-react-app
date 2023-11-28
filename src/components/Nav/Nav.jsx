@@ -12,7 +12,7 @@ function Nav(props) {
     <p> </p>
     <NavList /> 
   
-    <NavFooter navPageTrainers = {props.navPageTrainers } />
+  
     
 
   </nav>
@@ -42,6 +42,14 @@ return (
 <div className={classes.item}> 
 
 <NavLink to="/Reviews" className = {  navData => navData.isActive ? classes.active : classes.item  }> Отзывы </NavLink> 
+</div>
+<div className={classes.item}> 
+
+<NavLink to="/Users" className = {  navData => navData.isActive ? classes.active : classes.item  }> Члены клуба </NavLink> 
+</div>
+<div className={classes.item}> 
+
+<NavLink to="/Shop" className = {  navData => navData.isActive ? classes.active : classes.item  }> Магазин </NavLink> 
 </div>
 </div>
 )

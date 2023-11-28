@@ -16,5 +16,6 @@
 
 .mainScreenDisplay
 {
-grid-area: c;} /*присвоили псевдоним грид ереа компоненту */
+grid-area: c;
+background-color: aqua;} /*присвоили псевдоним грид ереа компоненту */
 

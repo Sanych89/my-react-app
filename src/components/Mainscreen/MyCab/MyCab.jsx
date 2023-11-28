@@ -31,7 +31,7 @@ let addClubAge = () => {
 
 
   return (
-        <>
+        
         <div className={classes.MyCabMain}>          
           Личный кабинет        
         <MyCabStat avname="Sanych" clubAge='34'/>
@@ -54,24 +54,14 @@ let addClubAge = () => {
 
        
         </div>
-        </>
+       
   )
 }
 
 function MyCabLike(props) {
-
   let addLikesToCab = () => {                    
     props.dispatch({type: 'ADDLIKESTOCAB' })         
-      
-} /*функция добавляет в массив в стейте запись */
-
-
-  return (
-    <>
-    <p> {`Лайки! ${ props.count }` }</p>
-    <button onClick={addLikesToCab}> Поддержать проект! </button>  
-    </>
-  )
+      } 
 }
 
 export default MyCab

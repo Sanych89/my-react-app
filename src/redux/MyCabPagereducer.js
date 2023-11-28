@@ -11,30 +11,30 @@ const myCabPageReducer = (state = initialState, action) => {
 switch (action.type) {
 
 case 'ADDLIKESTOCAB': 
-{
+{ let stateCopy = {...state} 
     {
-        state.addLikesToCab();
-        return state;
+        stateCopy.addLikesToCab();
+        return stateCopy;
     }
 }
 
 
 case 'UPDATELIKESTOCAB':
-{
+{   let stateCopy = {...state} 
     {            
-        state.newMyCabLikeCount = action.count;
-        return state;
+        stateCopy.newMyCabLikeCount = action.count;
+        return stateCopy;
     }
 }
 
 case 'ADDCLUBAGE':
-    {
+    { let stateCopy = {...state} 
         {   
         console.log(clubAge)
         clubAge += 1;
         console.log(clubAge) 
-        state.newtrueLikeCount = clubAge    
-        return state;
+        stateCopy.newtrueLikeCount = clubAge    
+        return stateCopy;
     }
     }
 

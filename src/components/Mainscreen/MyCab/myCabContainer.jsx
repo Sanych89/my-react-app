@@ -1,28 +1,23 @@
 import React from 'react';
 import { actionCreatorUPDATELIKESTOCAB, actionCreatoraddClubAge } from '../../../redux/MyCabPagereducer';
 import MyCab from './MyCab';
+import StoreContext from '../../../storeContext';
+import { connect } from 'react-redux';
 
 
-function MyCabContainer(props) {
-    debugger
-
-let state = props.store.getState();
-
-let updateLikesToCab = (count) => {
- 
-  props.store.dispatch(actionCreatorUPDATELIKESTOCAB(count))     
-}  
-
-let addClubAge = () => {
-  debugger
-  props.store.dispatch(actionCreatoraddClubAge()) 
+let mapStateToProps = (state) => {
+  return {
+    info: state.myCabPage //передали всю страницу как пропс // 
+  }
 }
 
-  return (<MyCab updateLikesToCab= { updateLikesToCab }  addClubAge= { addClubAge } info = { state.myCabPage} />)
+let mapDispatchToProps = (dispatch) => {
+  return {
+    addClubAge: () => {dispatch(actionCreatoraddClubAge()) },
+    updateLikesToCab: (count) => {dispatch(actionCreatorUPDATELIKESTOCAB(count))},
 }
-  
+}
 
+const MyCabContainer = connect(mapStateToProps, mapDispatchToProps)(MyCab);
 
-
-
-export default MyCabContainer
+export default MyCabContainer 

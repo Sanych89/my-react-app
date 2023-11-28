@@ -7,6 +7,8 @@ import ReactDOM from 'react-dom/client';
 import NewApp from './NewApp';
 
 import store from './redux/redux-store';
+//import StoreContext from './storeContext';
+import { Provider } from 'react-redux';
 
 
 
@@ -16,29 +18,26 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 
-let rerenderEntireTree = (state) => {
+
   
     root.render (
+      
         <BrowserRouter>
-          <NewApp 
-          state={state}
-          /*addPost={store.addPost.bind(store)}*/
-          /*updateNewPost={store.updateNewPost.bind(store)} */  
-          dispatch={store.dispatch.bind(store)}
-          store={store}
-          
+          <Provider store={store}>
+            <NewApp 
+            //state={state}
+            /*addPost={store.addPost.bind(store)}*/
+            /*updateNewPost={store.updateNewPost.bind(store)} */  
+            //dispatch={store.dispatch.bind(store)}
+            //store={store}          
           />    
+          </Provider>
         </BrowserRouter> );       
-}
+  
 
-rerenderEntireTree(store.getState())
-    
-store.subscribe( () => {
 
-  let state = store.getState();
-  rerenderEntireTree(state);
-});
- 
+
+
 /* поскольку при конфигурации addPost в формате {store.addPost} происходит ее вызов в другой функции внутри компонентов  (в ревьювс вызывается 
 
      let addPost = () => {                    

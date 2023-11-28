@@ -21,10 +21,8 @@ function Reviews(props) {
     } /*функция добавляет в массив в стейте запись */
 
     let onPostChange = () => {
-        let text = reviewText.current.value;     
-        
-        
-        props.updateNewPostText(text);  
+        let text = reviewText.current.value;    
+        props.updateNewPost(text);  
         
         
     } /*функция берет данные из значения текстареа и отсылает его в переменную  newPostText в стейте */

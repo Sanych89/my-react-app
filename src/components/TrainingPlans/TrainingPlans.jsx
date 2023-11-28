@@ -18,6 +18,7 @@ function Trainermessage (props) {
 }
 
 function TrainingPlans(props) {
+  
 
 
 let trainingDataJSX = props.trainingData.map (el => <Trainer trainerName={el.trainerName} trainerUrl={el.trainerUrl} trainerId={el.id}/>); 
