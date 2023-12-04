@@ -1,5 +1,8 @@
 .MyCabMain{
     background-color: brown;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between  ;
 }
 .item{
     color: red;
@@ -7,4 +10,13 @@
 
 .item img {
     width: 50px;
+}
+
+.otherUserImg {
+    color: red;
+}
+
+.otherUserImg img{
+    width: 300px;
+    border-radius: 50px;
 }

@@ -3,6 +3,7 @@ const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 
 let initialState = {
     users: [
@@ -10,7 +11,8 @@ let initialState = {
     ],
     pageSize: 5, //размер страницы в плане количества записей для отображения при загрузке их с сервера
     totalUsersCount: 20, //иниц значение общего количества страниц для формирования кнопок переключения по списку пользователей
-    currentPage: 1 //иниц значение отображения текущей страницы которая будет подсвечена в УИ
+    currentPage: 1, //иниц значение отображения текущей страницы которая будет подсвечена в УИ
+    isFetching: true
 };
 
 const userPageReducer = (state = initialState, action) => {
@@ -51,6 +53,9 @@ const userPageReducer = (state = initialState, action) => {
             return { ...state, currentPage: action.currentPage}
         case SET_TOTAL_USERS_COUNT:
             return { ...state, totalUsersCount: action.count}
+        case TOGGLE_IS_FETCHING:
+            return { ...state, isFetching: action.isFetching}
+
 
         default: 
             return state;
@@ -58,12 +63,13 @@ const userPageReducer = (state = initialState, action) => {
   
 }
 
-export const followAC  = (userID) => ({type: FOLLOW, userID})
-export const unfollowAC  = (userID) => ({type: UNFOLLOW, userID})
-export const setUsersAC = (users) => ({type: SET_USERS, users}) 
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage: currentPage})
-export const setTotalUsersCountAC = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})
+export const follow  = (userID) => ({type: FOLLOW, userID})
+export const unfollow  = (userID) => ({type: UNFOLLOW, userID})
+export const setUsers = (users) => ({type: SET_USERS, users}) 
+export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage: currentPage})
+export const setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})
+export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export default userPageReducer
 /* setUSers это создатель экшена который будет принимать пришедшую извне информацию
-users , присвать ей тип для диспатча и пересылать в редьюсер */
+users , присвать ей тип для диспатча и пересылать в редьюсер */ 

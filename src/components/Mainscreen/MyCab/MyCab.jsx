@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './MyCab.module.css';
 import MyCabStat from './Mystat/MyCabStat';
 import classes from './MyCab.module.css'
+import Preloader from '../../Common/preloader';
 
 
 
@@ -11,7 +11,7 @@ import classes from './MyCab.module.css'
 
 
 function MyCab(props) {
-
+ 
 
   
   let likeCountText = React.createRef();  
@@ -28,11 +28,17 @@ let addClubAge = () => {
   props.addClubAge(); 
 }
 
+if (!props.info.profile) {
+  return <Preloader/>
+}
+
 
 
   return (
         
-        <div className={classes.MyCabMain}>          
+        <div className={classes.MyCabMain}>   
+        <span>
+        
           Личный кабинет        
         <MyCabStat avname="Sanych" clubAge='34'/>
         <MyCabStat avname="Marsik" clubAge='8' />
@@ -49,8 +55,17 @@ let addClubAge = () => {
         
         <p> { myCabTextJSX } </p>
         
+        </span>
+            
+        <div>
+          
+          Страница просматриваемого пользователя:          
+          <div className={classes.otherUserImg}>            
+            <img src={props.info.profile.photos.large} ></img>
+          </div>
+        </div>
         
-        
+
 
        
         </div>

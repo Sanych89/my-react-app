@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './users.module.css'
 import axios from 'axios'
 import userDefaultFoto from '../../Assets/Img/homka.jpeg'
+import { NavLink } from 'react-router-dom';
 
 let Users = (props) => 
 {
@@ -23,7 +24,7 @@ let Users = (props) =>
     return <div>
         <div>
         { pages.map (p => {
-            return <span className={props.currentPage === p  && styles.selectedPage } onClick={ (e) => { onPageChanged(p) ;} }> {p} </span>
+            return <span className={props.currentPage === p  && styles.selectedPage } onClick={ (e) => { props.onPageChanged(p) ;} }> {p} </span>
         })
         //при нажатии на элемент в span вызывается обработчик событий е который
         //вызывает метод класса onPageChanged который принимает номер страницы и
@@ -36,7 +37,12 @@ let Users = (props) =>
             props.users.map ( u => <div key={u.id}> 
          <span>
             
-            <div> <img src={u.photos.small != null ? u.photos.small : userDefaultFoto } className={styles.userPhoto}/></div>
+            <div> 
+                <NavLink to={'/MyCab/' + u.id}>
+
+                <img src={u.photos.small != null ? u.photos.small : userDefaultFoto } className={styles.userPhoto}/>
+                </NavLink>
+            </div>
             <div> 
                 {u.followed 
                 ? <button onClick={ () => { props.unfollow(u.id)}}> Unfollow </button>
