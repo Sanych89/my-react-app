@@ -30,8 +30,8 @@ function NewApp(props) {
           <Route path="/" element= {<MainScreen />}/>   
           <Route path="/Mainscreen" element= {<MainScreen  /> }/>                   
           <Route path="/TrainingPlans" element= {<TrainingPlansConainer />} /> 
-          <Route path="/MyCab/*"
-                    element= {<MyCabContainer                    />}/>   
+          <Route path="/MyCab/:id" element={<MyCabContainer/>}/>
+          <Route path="/MyCab/" element={<MyCabContainer/>}/>             
           <Route path="/TrainingPlans/strenght" element= {<TrainerStr/>}/>
           <Route path="/Reviews" 
           element= {<ReviewsContainer               

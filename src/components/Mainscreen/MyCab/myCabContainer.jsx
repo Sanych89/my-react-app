@@ -3,16 +3,50 @@ import { addClubAge, updateLikesToCab, setUserProfile } from '../../../redux/MyC
 import MyCab from './MyCab';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
+function withRouter(Component) {
+  function ComponentWithRouterProp(props) {
+      let params = useParams();
+      return (
+          <Component
+              {...props}
+              router={{ params }}
+          />
+      );
+  }
+
+  return ComponentWithRouterProp;
+}
+
+/* функция использующая хук useParams который берет параметры из УРЛ. 
+ использовано тк в классовой компоненте нельзя использовать хуки а метод виз роутер из
+ выпуска 60 более не функционирует */
 
 
 class MyCabContainer extends React.Component {
+
+  
   
 
   componentDidMount () {
-    axios.get (`https://social-network.samuraijs.com/api/1.0/profile/2`)
+    
+    let profileId = this.props.router.params.id
+
+    if (!profileId) {
+      profileId = 2;
+    } //если нет айди то вызывается страничка с айди 2 //
+
+    
+
+    
+    
+   
+    axios.get (`https://social-network.samuraijs.com/api/1.0/profile/` + profileId)
     .then(response => {
         this.props.setUserProfile(response.data) //закидываем получаемый из сервера обьект дата в функцию setUserProfile
       })
+    
 
 
   }
@@ -24,6 +58,7 @@ class MyCabContainer extends React.Component {
       addClubAge={this.props.addClubAge}
       updateLikesToCab={this.props.updateLikesToCab}
       setUserProfile={this.props.setUserProfile}
+      
       />
 
       )
@@ -34,6 +69,7 @@ class MyCabContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     info: state.myCabPage, //передали всю страницу как пропс //     
+    
   }
 }
 
@@ -46,7 +82,7 @@ export default connect(mapStateToProps,
     updateLikesToCab,
     setUserProfile,
   })
- (MyCabContainer);
+ (withRouter(MyCabContainer));
 
 
 

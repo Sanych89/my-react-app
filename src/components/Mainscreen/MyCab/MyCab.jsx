@@ -1,6 +1,7 @@
 import React from 'react';
 import './MyCab.module.css';
 import MyCabStat from './Mystat/MyCabStat';
+import MyCabOtherUser from './MyCabOtherUser'
 import classes from './MyCab.module.css'
 import Preloader from '../../Common/preloader';
 
@@ -59,16 +60,13 @@ if (!props.info.profile) {
             
         <div>
           
-          Страница просматриваемого пользователя:          
-          <div className={classes.otherUserImg}>            
-            <img src={props.info.profile.photos.large} ></img>
-          </div>
-        </div>
-        
+          Страница просматриваемого пользователя: 
+          <div> <MyCabOtherUser profile={props.info.profile}/>    
+   
+    </div>
+  </div>
+          </div>  
 
-
-       
-        </div>
        
   )
 }
@@ -80,3 +78,5 @@ function MyCabLike(props) {
 }
 
 export default MyCab
+
+//           

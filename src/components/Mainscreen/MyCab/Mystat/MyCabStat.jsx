@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import "./MyCabStat.module.css";
 import classes from "./MyCabStat.module.css";
 

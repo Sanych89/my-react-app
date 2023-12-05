@@ -33,9 +33,6 @@ return (
 </div>
 <div className={classes.item}> 
 
-<NavLink to="/Products" className = {  navData => navData.isActive ? classes.active : classes.item  }> Products </NavLink> 
-</div>
-<div className={classes.item}> 
 
 <NavLink to="/MyCab" className = {  navData => navData.isActive ? classes.active : classes.item  }> My Cabinet </NavLink> 
 </div>
