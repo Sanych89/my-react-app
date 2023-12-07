@@ -1,12 +1,16 @@
 import React from 'react';
-import styles from './shop.module.css'
+import classes from './shop.module.css'
 import { NavLink, Route } from 'react-router-dom';
+import ShopIcon from '../Common/shopIcon';
 
 
 
 let Shop = (props) => {
 
     return <div>
+        <ShopIcon/>
+
+
 
         <span> Топ бар</span>
         <span> список товаров </span>

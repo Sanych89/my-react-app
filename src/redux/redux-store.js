@@ -4,6 +4,7 @@ import myCabPageReducer from './MyCabPagereducer';
 import navBarReducer from './NavBarReducer';
 import trainingPageReducer from './trainingPageReducer'
 import usersPageReducer from './UsersPageReducer'
+import authReducer from "./authreducer";
 
 let reducers = combineReducers({
     postPage: reviewsPageReducer,
@@ -11,6 +12,7 @@ let reducers = combineReducers({
     navPage: navBarReducer,
     trainingPage: trainingPageReducer,
     usersPage: usersPageReducer,
+    auth: authReducer,
 })
 
 let store = createStore(reducers);
