@@ -26,15 +26,15 @@ function NavList(props) {
 return (
   <div >
   <div className={classes.item}>
-  <NavLink to="/Mainscreen" className= { navData => navData.isActive ? classes.active : classes.item }> Main Screen</NavLink>       
+  <NavLink to="/Mainscreen" className= { navData => navData.isActive ? classes.active : classes.item }> Стартовая страница </NavLink>       
 </div>
 <div className={classes.item}> 
-<NavLink to="/TrainingPlans" className =  { navData => navData.isActive ? classes.active : classes.item }> Training Plans</NavLink> 
+<NavLink to="/TrainingPlans" className =  { navData => navData.isActive ? classes.active : classes.item }> Планы тренировок </NavLink> 
 </div>
 <div className={classes.item}> 
 
 
-<NavLink to="/MyCab" className = {  navData => navData.isActive ? classes.active : classes.item  }> My Cabinet </NavLink> 
+<NavLink to="/MyCab" className = {  navData => navData.isActive ? classes.active : classes.item  }> Мой кабинет </NavLink> 
 </div>
 <div className={classes.item}> 
 

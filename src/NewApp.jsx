@@ -1,7 +1,7 @@
 import React, { useState }  from 'react';
 import ReactDOM from 'react-dom/client';
 import './mainstyle.css'
-import Header from './components/Header/Header'
+import HeaderContainer from './components/Header/HeaderContainer'
 import Nav from './components/Nav/Nav';
 import MainScreen from './components/Mainscreen/MainScreen';
 import TrainerStr from './components/TrainingPlans/Trainers/TrainerSTR';
@@ -23,7 +23,7 @@ function NewApp(props) {
     return (
     
       <div className='app-wrapper'>  
-        <Header />
+        <HeaderContainer />
         <Nav /> 
         <div class='mainScreenDisplay'> 
         <Routes> 
