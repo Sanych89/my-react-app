@@ -33,9 +33,9 @@ case 'UPDATELIKESTOCAB':
 case 'ADDCLUBAGE':
     { let stateCopy = {...state} 
         {   
-        console.log(clubAge)
+        
         clubAge += 1;
-        console.log(clubAge) 
+       
         stateCopy.newtrueLikeCount = clubAge    
         return stateCopy;
     }

@@ -3,9 +3,13 @@ import styles from './users.module.css'
 import axios from 'axios'
 import userDefaultFoto from '../../Assets/Img/homka.jpeg'
 import { NavLink } from 'react-router-dom';
+import { followFromServ,  unfollowFromServ, usersAPI} from '../../API/API';
+
 
 let Users = (props) => 
+
 {
+    
     let pagesCount = Math.ceil (props.totalUsersCount / props.pageSize) ;
     //Math.ceil - функция джскрипт округляющая значение вверх.
     // нужно для того, что цикл фор ниже остекает дробную часть, соотв
@@ -44,33 +48,18 @@ let Users = (props) =>
                 </NavLink>
             </div>
             <div> 
+                
                 {u.followed 
-                ? <button onClick={ () => { 
-                    axios.delete (`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                    {withCredentials: true,
-                     headers: 
-                     {"API-KEY": "4e3e49a8-32f1-46d5-baad-0fb3d7f5675e",
-                    }}
-                    ) //в делит , как и в пост запросе креденшиалс идут вторым параметром. 
-                    .then(response => {
-                        if (response.data.resultCode == 0) {
-                            props.unfollow(u.id);
-                        }
-                    });
+                
+                ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick= { () => { 
+                    /*если в пропсах  атрибут followingInProgress будет тру то кнопка будет отключена*/
+                    /*21.12 - поскольку followingInProgress теперь массив, то методом some проверяется есть ли в нем
+                    ид фоллоу пользователей и отключает им кнопки */
+                    props.unfollow(u.id);               
                 }}> Unfollow </button>  
-                : <button onClick={ () => {                     
-                    axios.post (`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, 
-                    {withCredentials: true,
-                    headers: 
-                       {"API-KEY": "4e3e49a8-32f1-46d5-baad-0fb3d7f5675e",
-                       }})
-                    
-                     //в пост запросе креденшиалс идут третьим параметром. ПОтому структура на 14.12 - запрос/пустой обьект / креденшиалс
-                    .then(response => {
-                        if (response.data.resultCode == 0) {
-                            props.follow(u.id);
-                        }
-                    });
+                : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={ () => {     
+                    props.follow(u.id);
+                                   
                    }}>Follow </button>}
             </div>
         </span>
@@ -91,5 +80,7 @@ let Users = (props) =>
     
 
 }
+
+
 
 export default Users

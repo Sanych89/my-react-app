@@ -17,5 +17,7 @@
 .mainScreenDisplay
 {
 grid-area: c;
+flex-wrap: wrap;
 background-color: aqua;} /*присвоили псевдоним грид ереа компоненту */
+
 

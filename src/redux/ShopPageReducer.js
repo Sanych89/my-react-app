@@ -1,27 +1,26 @@
-const FOLLOW = 'FOLLOW'
-const UNFOLLOW = 'UNFOLLOW'
-const SET_USERS = 'SET_USERS'
+const BOUGHT = 'BOUGHT'
+
 
 let initialState = {
-    users: [
-       
-    ]
+    quantity: 5,
+    price: 100,
+    name: 'beyblade',
+    boughtQTY: 0,
+    boughtNAME: 'Пусто',
+
 };
 
-const userPageReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case FOLLOW:
-            return  {...state, 
-                //users: [...state.users] } - вариант с копированием вложенного обьекта из обьекта //
-                // users: state.users.map( u => u ) //
-                //выше вариант с мапом - массив юзерс (новый) мапит массив из стейта и прописывает в него юзеров из массива из стейта //
-                users: state.users.map( u => {
-                    if (u.id === action.userID) {// если юзер ИД из массива равен юзер ИД //
-                        return {...u, followed: true}}
-                    return u }
-                    ) 
 
-            }
+
+
+const shopPageReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case BOUGHT:
+                  
+            state.quantity -= 1;              
+            state.boughtQTY += 1;
+            state.boughtNAME = state.name;
+            return  {...state} /*
         case UNFOLLOW:
             return {...state, 
                //users: [...state.users] } - вариант с копированием вложенного обьекта из обьекта //
@@ -45,9 +44,10 @@ const userPageReducer = (state = initialState, action) => {
   
 }
 
-export const followAC  = (userID) => ({type: FOLLOW, userID})
-export const unfollowAC  = (userID) => ({type: UNFOLLOW, userID})
-export const setUsersAC = (users) => ({type: SET_USERS, users}) 
-export default userPageReducer
+export const isBought  = () => {
+    return {type: BOUGHT}
+}
+
+export default shopPageReducer;
 /* setUSers это создатель экшена который будет принимать пришедшую извне информацию
 users , присвать ей тип для диспатча и пересылать в редьюсер */

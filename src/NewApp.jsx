@@ -12,7 +12,7 @@ import MyCabContainer from './components/Mainscreen/MyCab/myCabContainer';
 import TrainingPlansConainer from './components/TrainingPlans/TrainingPlansContainer';
 
 import UsersContainer from './components/Users/UsersContainer';
-import Shop from './components/Shop/Shop';
+import ShopPageContainer from './components/Shop/shopPageContainer';
 
 
 
@@ -40,7 +40,7 @@ function NewApp(props) {
           <Route path="/Users" 
           element = {<UsersContainer/>} />
           <Route path="/Shop" 
-          element = {<Shop/>} />
+          element = {<ShopPageContainer/>} />
         </Routes>         
         </div> 
         
