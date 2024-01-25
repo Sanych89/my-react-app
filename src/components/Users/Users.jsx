@@ -6,7 +6,10 @@ import { NavLink } from 'react-router-dom';
 import { followFromServ,  unfollowFromServ, usersAPI} from '../../API/API';
 
 
+
 let Users = (props) => 
+
+
 
 {
     
@@ -67,7 +70,7 @@ let Users = (props) =>
         <span>
             <span>
             <div>{u.name} </div>
-            <div>{u.userStatus}</div>
+            <div>{u.status}</div>
             </span>    
             <span>
             <div>  </div>

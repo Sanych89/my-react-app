@@ -2,7 +2,7 @@
 
 let initialState = {    
         posts: [{id: 1, message: 'Hi !'}, {id: 2, message: 'HelloHi2!'}],
-        newPostText: 'TESTMESSAGE'    
+           
 }
 
 const reviewsPageReducer = (state = initialState, action) => {
@@ -10,11 +10,11 @@ const reviewsPageReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case 'ADD-POST': {
-            let text = state.newPostText;
+            let text = action.reviewsMessage;
         stateCopy = {
             ...state,
             posts: [...state.posts, {id: 3, message: text}],
-            newPostText: '', 
+           
             
         }  
     }
@@ -54,10 +54,11 @@ const reviewsPageReducer = (state = initialState, action) => {
     // не копируется а остается ссылкой.
 
 
-export const actionCreatorAddPost = () => {
+export const actionCreatorAddPost = (reviewsMessage) => {
         
     return {
-        type: 'ADD-POST'
+        type: 'ADD-POST',
+        reviewsMessage
     }
 }
 

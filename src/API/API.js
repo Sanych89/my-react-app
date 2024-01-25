@@ -35,17 +35,40 @@ return instance.get (baseUrl + `users?page=${pageNumber}&count=${pageSize}`)
 },
 
 
-     followFromServ (userId)  {
+    followFromServ (userId)  {
     return instance.post (`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {},)
+},
+
+     
+
 }
 
+export const profileAPI = {
+    getProfile(userId) {
+        return instance.get (`https://social-network.samuraijs.com/api/1.0/profile/` + userId, {withCredentials: true});
+    },
+    getStatus(userId) {
+        return instance.get(`https://social-network.samuraijs.com/api/1.0/profile/status/` + userId)
 
+    },
+    updateStatus(status) {
+        
+        return instance.put(`https://social-network.samuraijs.com/api/1.0/profile/status/`, {status: status})
 
-}
-
-export const authUser = () => {
-    return axios.get (`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials: true})
-        .then(response => response.data)
     }
+}
+
+
+export const authAPI = {
+    me() {
+        return instance.get ('https://social-network.samuraijs.com/api/1.0/auth/me', {withCredentials: true});        
+    },
+    authLogin(email, password, rememberMe = false) {
+    return instance.post ('https://social-network.samuraijs.com/api/1.0/auth/login', {email, password, rememberMe})   
+    },
+    authLogout() {
+        return instance.delete ('https://social-network.samuraijs.com/api/1.0/auth/login');   
+    }
+}
 
 

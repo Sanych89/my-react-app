@@ -10,7 +10,7 @@ function Header(props) {
     <img src='https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg' /> 
     <div className={classes.loginBlock}>
         {props.isAuth ?
-        <NavLink to={'/login'}> {props.login} </NavLink>
+        <div> {props.login} - <button onClick={props.logout}> Logout </button> </div> 
         :
         <NavLink to={'/login'}> Login! </NavLink>
         

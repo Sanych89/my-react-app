@@ -2,6 +2,8 @@ import React from "react";
 import "./MyCabStat.module.css";
 import classes from "./MyCabStat.module.css";
 
+
+
 function MyCabStat(props) {
   return (
     <>
@@ -11,7 +13,10 @@ function MyCabStat(props) {
           alt=""
         />
         { props.avname } { props.clubAge } 
+        
+
       </div>
+     
     </>
   );
 }

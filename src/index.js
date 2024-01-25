@@ -1,13 +1,8 @@
 import React, { useState }  from 'react';
-
-/*import store from './redux/state';*/
-
 import { BrowserRouter } from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import NewApp from './NewApp';
-
 import store from './redux/redux-store';
-//import StoreContext from './storeContext';
 import { Provider } from 'react-redux';
 
 

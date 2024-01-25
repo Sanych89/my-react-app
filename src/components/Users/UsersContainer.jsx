@@ -18,7 +18,7 @@ class UsersAPIComponent extends React.Component {
 
     componentDidMount () {
 
-        debugger
+  
         this.props.getUsers(this.props.currentPage, this.props.pageSize);
         
         /*this.props.toggleIsFetching(true)

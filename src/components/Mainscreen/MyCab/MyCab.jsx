@@ -4,6 +4,9 @@ import MyCabStat from './Mystat/MyCabStat';
 import MyCabOtherUser from './MyCabOtherUser'
 import classes from './MyCab.module.css'
 import Preloader from '../../Common/preloader';
+import { NavLink, Navigate, redirect } from 'react-router-dom';
+import ProfileStatus from './Mystat/ProfileStatusPage'
+import MyCabReduxForm from './MyCabForm';
 
 
 
@@ -12,7 +15,21 @@ import Preloader from '../../Common/preloader';
 
 
 function MyCab(props) {
+
+  
+
+  const onSubmit = (formData) => {
+    console.log(formData)
+   
+    
+
+
+}
+
+
+  
  
+  if (props.isAuth == false) return <Navigate to ={"/Login"}/>
 
   
   let likeCountText = React.createRef();  
@@ -42,16 +59,17 @@ if (!props.info.profile) {
         
           Личный кабинет        
         <MyCabStat avname="Sanych" clubAge='34'/>
-        <MyCabStat avname="Marsik" clubAge='8' />
+        <ProfileStatus status={props.status} udpateUserStatus = {props.udpateUserStatus}  />
 
         <button onClick={addClubAge}> Лет в клубе </button>  
         <p> Уже: {props.info.newtrueLikeCount}</p>
         
 
-              
-        
-        
+          
         <textarea onChange= {updateLikesToCab} ref={likeCountText}  value={props.info.newMyCabLikeCount}>  </textarea>
+        
+        <MyCabReduxForm onSubmit={onSubmit}/>
+
         <p> Количество 1: {props.info.newMyCabLikeCount} </p>
         
         <p> { myCabTextJSX } </p>
@@ -61,7 +79,7 @@ if (!props.info.profile) {
         <div>
           
           Страница просматриваемого пользователя: 
-          <div> <MyCabOtherUser profile={props.info.profile}/>    
+          <div> <MyCabOtherUser profile={props.info.profile} status={props.status}/>    
    
     </div>
   </div>

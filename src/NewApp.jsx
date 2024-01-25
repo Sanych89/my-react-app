@@ -1,27 +1,31 @@
 import React, { useState }  from 'react';
-import ReactDOM from 'react-dom/client';
 import './mainstyle.css'
 import HeaderContainer from './components/Header/HeaderContainer'
 import Nav from './components/Nav/Nav';
 import MainScreen from './components/Mainscreen/MainScreen';
 import TrainerStr from './components/TrainingPlans/Trainers/TrainerSTR';
 import { Routes, Route} from 'react-router-dom';
-
 import ReviewsContainer from './components/Reviews/reviewsContainer';
 import MyCabContainer from './components/Mainscreen/MyCab/myCabContainer';
 import TrainingPlansConainer from './components/TrainingPlans/TrainingPlansContainer';
-
 import UsersContainer from './components/Users/UsersContainer';
 import ShopPageContainer from './components/Shop/shopPageContainer';
+import Login from './components/Login/login';
+import { getAuthData } from './redux/authreducer';
+import { connect } from 'react-redux';
 
 
 
 
-function NewApp(props) {
+class NewApp extends React.Component {  
   
-    
-    return (
-    
+  componentDidMount() {
+    this.props.getAuthData();
+}
+
+  
+  render() {
+    return (    
       <div className='app-wrapper'>  
         <HeaderContainer />
         <Nav /> 
@@ -41,16 +45,16 @@ function NewApp(props) {
           element = {<UsersContainer/>} />
           <Route path="/Shop" 
           element = {<ShopPageContainer/>} />
+          <Route path = "/Login" element = {<Login/>} /> 
         </Routes>         
-        </div> 
-        
-      </div>
-      
+        </div>         
+      </div>      
     );
     }
+  }
     
 
-    export default NewApp
+    export default connect(null, {getAuthData} )(NewApp)
     
 //navPageTrainers={props.state.navPage.navPageTrainers}
     //trainingDataMessages={props.state.trainingPage.trainingDataMessages} trainingData={props.state.trainingPage.trainingData}

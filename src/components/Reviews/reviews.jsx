@@ -1,33 +1,29 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Navigate, redirect } from 'react-router-dom';
 import classes from './reviews.module.css';
 import Posts from './ReviewPosts/ReviewPosts';
+import ReviewsReduxForm from './reviewsForm';
 
 
 
 
-function Reviews(props) {
+
+function Reviews(props)     {
+    
     
     //let state = props.postPage;//
+    const onSubmit = (formData) => {
+        console.log(formData)
+       
+        props.addPost(formData.reviewsMessage);
+
+
+    }
+
 
     let reviewsPostJSX = props.posts.map (el => <Posts message={el.message}/>); 
     
-    let reviewText = React.createRef();
 
-    let onAddPost = () => {                     
-        props.addPost();      
-           
-          
-    } /*функция добавляет в массив в стейте запись */
-
-    let onPostChange = () => {
-        let text = reviewText.current.value;    
-        props.updateNewPost(text);  
-        
-        
-    } /*функция берет данные из значения текстареа и отсылает его в переменную  newPostText в стейте */
-
-  
     
     /* выше обьявлена переменная reviewText которая через метод React.createRef() просит реакт создать конкретную ссылку 
     на конкретный элемиент джскс разметки . 
@@ -40,8 +36,8 @@ function Reviews(props) {
     return (
     <div className = {classes.ReviewsMain}>
         <div className = {classes.ReviewsMainUI}> Reviews UI 
-        <textarea onChange= {onPostChange} ref={reviewText} value={props.newPostText}> </textarea>
-        <button onClick={onAddPost}> Отправить отзыв </button>
+
+        <ReviewsReduxForm onSubmit={onSubmit} />
 
 
         </div>
